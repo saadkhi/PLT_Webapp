@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Testimonials - Your Software Agency{% endblock %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-4">What Our Clients Say</h1>
+    <p class="text-lg mb-8">Don't just take our word for it - hear from our satisfied clients.</p>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded shadow">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                    JS
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-semibold">John Smith</h3>
+                    <p class="text-gray-600 text-sm">CEO, TechStart Inc.</p>
+                </div>
+            </div>
+            <p class="text-gray-700 italic">"The team delivered an exceptional e-commerce platform that exceeded our expectations. Their attention to detail and technical expertise is outstanding."</p>
+            <div class="flex mt-4">
+                <span class="text-yellow-400">★★★★★</span>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded shadow">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                    MJ
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-semibold">Maria Johnson</h3>
+                    <p class="text-gray-600 text-sm">CTO, FinanceFlow</p>
+                </div>
+            </div>
+            <p class="text-gray-700 italic">"Our mobile banking app has been a huge success thanks to their development team. Professional, reliable, and innovative solutions."</p>
+            <div class="flex mt-4">
+                <span class="text-yellow-400">★★★★★</span>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded shadow">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                    RB
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-semibold">Robert Brown</h3>
+                    <p class="text-gray-600 text-sm">Founder, DataInsights</p>
+                </div>
+            </div>
+            <p class="text-gray-700 italic">"The AI analytics dashboard they built has transformed how we understand our data. Highly recommend their services!"</p>
+            <div class="flex mt-4">
+                <span class="text-yellow-400">★★★★★</span>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded shadow">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                    LW
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-semibold">Lisa Wilson</h3>
+                    <p class="text-gray-600 text-sm">Marketing Director, GrowthCorp</p>
+                </div>
+            </div>
+            <p class="text-gray-700 italic">"From concept to launch, they guided us through every step. The final product is exactly what we envisioned and more."</p>
+            <div class="flex mt-4">
+                <span class="text-yellow-400">★★★★★</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
