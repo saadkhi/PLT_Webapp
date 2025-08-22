@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Your Software Agency{% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/images/title_logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add Google Fonts link for Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Avenir Next Arabic', 'Avenir Next', 'Segoe UI',
+        Tahoma, Geneva, sans-serif;
+      font-weight: 100;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding-top: 80px;
+    }
+
+    #navbar {
+      transition: top 0.3s;
+    }
+
+    /* Mobile menu hidden by default */
+    #mobile-menu {
+      display: none;
+    }
+
+    /* Show mobile menu when active */
+    #mobile-menu.active {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-thin">
+  <!-- Navbar -->
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full bg-white text-black p-5 z-50 font-thin border-b border-gray-300">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-6">
+        <a href="/" class="flex items-center space-x-2">
+          <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-10 w-auto">
+        </a>
+      </div>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-4">
+        <ul class="flex space-x-4 font-thin">
+          <li><a href="/" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
+          <li><a href="/services" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
+          <li><a href="/industries" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Industries</a></li>
+          <li><a href="/insights" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Insights</a></li>
+          <li><a href="/about" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">About</a></li>
+        </ul>
+        <div class="flex items-center space-x-4 font-thin">
+          <a href="/careers" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Careers</a>
+          <a href="/contact" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Contact Us</a>
+          <!-- <button class="p-2 rounded-md hover:bg-gray-200 transition">🔍</button> -->
+        </div>
+      </div>
+      <!-- Hamburger Button -->
+      <button id="hamburger-btn" class="md:hidden p-2 rounded-md hover:bg-gray-200 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden flex-col bg-white border-t border-gray-300">
+      <ul class="flex flex-col space-y-2 p-4 font-thin">
+        <li><a href="/" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
+        <li><a href="/services" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
+        <li><a href="/industries" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Industries</a></li>
+        <li><a href="/insights" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Insights</a></li>
+        <li><a href="/about" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">About</a></li>
+        <li><a href="/careers" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Careers</a></li>
+        <li><a href="/contact" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="font-thin">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-black pt-10 pb-6 font-thin border-t border-gray-300">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Logo & Tagline -->
+        <div>
+          <h1 class="text-2xl font-bold text-black mb-3">Primeline Technologies</h1>
+          <p class="text-sm font-semibold">MAKE SOMETHING YOU LOVE</p>
+        </div>
+        <!-- Services -->
+        <div>
+          <h2 class="text-lg font-semibold text-black mb-4">SERVICES</h2>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-400">Artificial Intelligence & Automation</a></li>
+            <li><a href="#" class="hover:text-blue-400">Web & Mobile App Development</a></li>
+            <li><a href="#" class="hover:text-blue-400">Cybersecurity & Data Privacy</a></li>
+            <li><a href="#" class="hover:text-blue-400">Blockchain & FinTech Solutions</a></li>
+            <li><a href="#" class="hover:text-blue-400">Data Analytics & Business Intelligence</a></li>
+            <li><a href="#" class="hover:text-blue-400">E-commerce & Digital Transformation</a></li>
+            <li><a href="#" class="hover:text-blue-400">Cloud & DevOps Services</a></li>
+            <li><a href="#" class="hover:text-blue-400">Healthcare & EdTech Solutions</a></li>
+          </ul>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-lg font-semibold text-black mb-4">QUICK LINKS</h2>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-400">Work</a></li>
+            <li><a href="#" class="hover:text-blue-400">About</a></li>
+            <li><a href="#" class="hover:text-blue-400">Contact Us</a></li>
+            <li><a href="#" class="hover:text-blue-400">Blog</a></li>
+          </ul>
+        </div>
+        <!-- Social Links -->
+        <div>
+          <h2 class="text-lg font-semibold text-black mb-4">SOCIAL LINKS</h2>
+          <ul class="space-y-2">
+            <li><a href="#" class="flex items-center hover:text-blue-400"><i
+                  class="fab fa-facebook mr-2"></i>Facebook</a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400"><i
+                  class="fab fa-whatsapp mr-2"></i>WhatsApp</a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400"><i
+                  class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Contact Information -->
+      <div class="mt-10 border-t border-gray-700 pt-6">
+        <h2 class="text-center text-lg font-semibold text-black mb-6">CONTACT INFORMATION</h2>
+        <div class="grid grid-cols-1 gap-6 text-sm text-black text-center">
+          <!-- UAE -->
+          <!-- <div>
+            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇦🇪</span>UAE</h3>
+            <p>Office Unit,<br> Area, Dubai, UAE</p>
+            <p class="mt-1">📞 +971-34-235-6786</p>
+          </div> -->
+          <!-- Pakistan -->
+          <!-- <div>
+            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇵🇰</span>PK</h3>
+            <p class="text-black">Block 13d,<br> Gulshan, Karachi, Pakistan</p>
+            <p class="text-black mt-1">✉️ info@primeline.com</p>
+            <p class="text-black">📞 +92-335-4329087</p>
+          </div> -->
+          <!-- USA -->
+          <div>
+            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇺🇸</span>USA</h3>
+            <p class="text-black">street abs,<br> fgdse, USA</p>
+            <p class="text-black mt-1">✉️ info@primeline.com</p>
+            <p class="text-black">📞 +92-335-4329087</p>
+          </div>
+          <!-- UK -->
+          <!-- <div>
+            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇬🇧</span>UK</h3>
+            <p>abdcsd,<br> breen</p>
+            <p class="mt-1">📞 +44-5437-908798</p>
+          </div> -->
+        </div>
+      </div>
+      <!-- Bottom -->
+      <div class="text-center text-black mt-10 text-sm">
+        &copy; 2025 Primeline Technologies LLC. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar Hide on Scroll
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0";
+      } else {
+        navbar.style.top = "-100px";
+      }
+      prevScrollPos = currentScrollPos;
+    }
+
+    // Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburgerBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+    });
+  </script>
+</body>
+
+</html>
