@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Your Software Agency{% endblock %}</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/static/images/title_logo.png">
+  <link rel="icon" type="image/png" href="{% static 'images/title_logo.png' %}">
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Add Google Fonts link for Plus Jakarta Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;300;400;500;700&display=swap"
@@ -23,6 +23,12 @@
       font-weight: 100;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     main {
@@ -49,14 +55,14 @@
   <!-- Navbar -->
   <header id="navbar"
     class="fixed top-0 left-0 w-full bg-white text-black p-5 z-50 font-thin border-b border-gray-300">
-    <nav class="container mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-6">
+    <nav class="px-7 flex justify-between items-center min-w-[200px]">
+      <div class="flex items-center space-x-6 flex-shrink-0">
         <a href="/" class="flex items-center space-x-2">
-          <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-10 w-auto">
+          <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-10 w-auto object-contain">
         </a>
       </div>
       <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center space-x-4">
+      <div class="hidden lg:flex items-center space-x-4">
         <ul class="flex space-x-4 font-thin">
           <li><a href="/" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
           <li><a href="/services" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
@@ -67,18 +73,17 @@
         <div class="flex items-center space-x-4 font-thin">
           <a href="/careers" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Careers</a>
           <a href="/contact" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Contact Us</a>
-          <!-- <button class="p-2 rounded-md hover:bg-gray-200 transition">🔍</button> -->
         </div>
       </div>
       <!-- Hamburger Button -->
-      <button id="hamburger-btn" class="md:hidden p-2 rounded-md hover:bg-gray-200 transition ">
+      <button id="hamburger-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-200 transition">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </nav>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden flex-col bg-white ">
+    <div id="mobile-menu" class="lg:hidden flex-col bg-white">
       <ul class="flex flex-col space-y-2 p-4 font-thin">
         <li><a href="/" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
         <li><a href="/services" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
@@ -98,7 +103,7 @@
 
   <!-- Footer -->
   <footer class="bg-white text-black pt-10 pb-6 font-thin border-t border-gray-300">
-    <div class="container mx-auto px-6">
+    <div class="px-20">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         <!-- Logo & Tagline -->
         <div>
@@ -135,16 +140,21 @@
         <div>
           <h2 class="text-lg font-semibold text-black mb-4">SOCIAL LINKS</h2>
           <ul class="space-y-2">
-            <li><a href="#" class="flex items-center hover:text-blue-400"><i
-                  class="fab fa-facebook mr-2"></i> <img src="{% static 'images/facebook.png' %}" alt="Facebook Logo" class="w-6 h-6 mr-2"> Facebook </a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400"><i
-                  class="fab fa-whatsapp mr-2"></i> <img src="{% static 'images/instagram.png' %}" alt="WhatsApp Logo" class="w-6 h-6 mr-2"> Instagram</a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400"><i
-                  class="fab fa-linkedin mr-2"></i> <img src="{% static 'images/linkedin.png' %}" alt="WhatsApp Logo" class="w-6 h-6 mr-2"> LinkedIn</a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400"><i
-                  class="fab fa-twitter mr-2"></i> <img src="{% static 'images/twitter.png' %}" alt="X (Twitter) Logo" class="w-6 h-6 mr-2"> X (Twitter)</a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400"><i
-                  class="fab fa-youtube mr-2"></i> <img src="{% static 'images/youtube.png' %}" alt="YouTube Logo" class="w-6 h-6 mr-2"> YouTube</a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400">
+                <img src="{% static 'images/facebook.png' %}" alt="Facebook Logo" class="w-6 h-6 mr-2"> Facebook
+              </a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400">
+                <img src="{% static 'images/instagram.png' %}" alt="Instagram Logo" class="w-6 h-6 mr-2"> Instagram
+              </a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400">
+                <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn Logo" class="w-6 h-6 mr-2"> LinkedIn
+              </a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400">
+                <img src="{% static 'images/twitter.png' %}" alt="X (Twitter) Logo" class="w-6 h-6 mr-2"> X (Twitter)
+              </a></li>
+            <li><a href="#" class="flex items-center hover:text-blue-400">
+                <img src="{% static 'images/youtube.png' %}" alt="YouTube Logo" class="w-6 h-6 mr-2"> YouTube
+              </a></li>
           </ul>
         </div>
       </div>
@@ -152,19 +162,6 @@
       <div class="mt-10 border-t border-gray-700 pt-6">
         <h2 class="text-center text-lg font-semibold text-black mb-6">CONTACT INFORMATION</h2>
         <div class="grid grid-cols-1 gap-6 text-sm text-black text-center">
-          <!-- UAE -->
-          <!-- <div>
-            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇦🇪</span>UAE</h3>
-            <p>Office Unit,<br> Area, Dubai, UAE</p>
-            <p class="mt-1">📞 +971-34-235-6786</p>
-          </div> -->
-          <!-- Pakistan -->
-          <!-- <div>
-            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇵🇰</span>PK</h3>
-            <p class="text-black">Block 13d,<br> Gulshan, Karachi, Pakistan</p>
-            <p class="text-black mt-1">✉️ info@primeline.com</p>
-            <p class="text-black">📞 +92-335-4329087</p>
-          </div> -->
           <!-- USA -->
           <div>
             <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇺🇸</span>USA</h3>
@@ -172,12 +169,6 @@
             <p class="text-black mt-1">✉️ info@primeline.com</p>
             <p class="text-black">📞 +92-335-4329087</p>
           </div>
-          <!-- UK -->
-          <!-- <div>
-            <h3 class="font-semibold text-black flex items-center justify-center"><span class="mr-2">🇬🇧</span>UK</h3>
-            <p>abdcsd,<br> breen</p>
-            <p class="mt-1">📞 +44-5437-908798</p>
-          </div> -->
         </div>
       </div>
       <!-- Bottom -->
