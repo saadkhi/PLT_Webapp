@@ -53,9 +53,8 @@
 
 <body class="bg-gray-100 font-thin">
   <!-- Navbar -->
-  <header id="navbar"
-    class="fixed top-0 left-0 w-full bg-white text-black p-5 z-50 font-thin border-b border-gray-300">
-    <nav class="px-7 flex justify-between items-center min-w-[200px]">
+  <header id="navbar" class="fixed top-0 left-0 w-full bg-white text-black p-5 z-50 font-thin border-b border-gray-300">
+    <nav class="px-8 flex justify-between items-center min-w-[200px]">
       <div class="flex items-center space-x-6 flex-shrink-0">
         <a href="/" class="flex items-center space-x-2">
           <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-10 w-auto object-contain">
@@ -64,19 +63,19 @@
       <!-- Desktop Menu -->
       <div class="hidden lg:flex items-center space-x-4">
         <ul class="flex space-x-4 font-thin">
-          <li><a href="/" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
-          <li><a href="/services" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
-          <li><a href="/industries" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Industries</a></li>
-          <li><a href="/insights" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Insights</a></li>
-          <li><a href="/about" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">About</a></li>
+          <li><a href="/" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Home</a></li>
+          <li><a href="/services" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Services</a></li>
+          <li><a href="/industries" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Industries</a></li>
+          <li><a href="/insights" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Insights</a></li>
+          <li><a href="/about" class="px-3 py-2 rounded-md hover:text-orange-500 transition">About</a></li>
         </ul>
         <div class="flex items-center space-x-4 font-thin">
-          <a href="/careers" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Careers</a>
-          <a href="/contact" class="px-3 py-2 rounded-md hover:bg-gray-200 transition">Contact Us</a>
+          <a href="/careers" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Careers</a>
+          <a href="/contact" class="px-3 py-2 rounded-md hover:text-orange-500 transition">Contact Us</a>
         </div>
       </div>
       <!-- Hamburger Button -->
-      <button id="hamburger-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-200 transition">
+      <button id="hamburger-btn" class="lg:hidden p-2 rounded-md hover:text-orange-500 transition">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -85,13 +84,14 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="lg:hidden flex-col bg-white">
       <ul class="flex flex-col space-y-2 p-4 font-thin">
-        <li><a href="/" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Home</a></li>
-        <li><a href="/services" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Services</a></li>
-        <li><a href="/industries" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Industries</a></li>
-        <li><a href="/insights" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Insights</a></li>
-        <li><a href="/about" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">About</a></li>
-        <li><a href="/careers" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Careers</a></li>
-        <li><a href="/contact" class="block px-3 py-2 rounded-md hover:bg-gray-200 transition">Contact Us</a></li>
+        <li><a href="/" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Home</a></li>
+        <li><a href="/services" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Services</a></li>
+        <li><a href="/industries" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Industries</a>
+        </li>
+        <li><a href="/insights" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Insights</a></li>
+        <li><a href="/about" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">About</a></li>
+        <li><a href="/careers" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Careers</a></li>
+        <li><a href="/contact" class="block px-3 py-2 rounded-md hover:text-orange-500 transition">Contact Us</a></li>
       </ul>
     </div>
   </header>
@@ -114,45 +114,45 @@
         <div>
           <h2 class="text-lg font-semibold text-black mb-4">SERVICES</h2>
           <ul class="space-y-2">
-            <li><a href="#" class="hover:text-blue-400">Artificial Intelligence & Automation</a></li>
-            <li><a href="#" class="hover:text-blue-400">Web & Mobile App Development</a></li>
-            <li><a href="#" class="hover:text-blue-400">Cybersecurity & Data Privacy</a></li>
-            <li><a href="#" class="hover:text-blue-400">Blockchain & FinTech Solutions</a></li>
-            <li><a href="#" class="hover:text-blue-400">Data Analytics & Business Intelligence</a></li>
-            <li><a href="#" class="hover:text-blue-400">E-commerce & Digital Transformation</a></li>
-            <li><a href="#" class="hover:text-blue-400">Cloud & DevOps Services</a></li>
-            <li><a href="#" class="hover:text-blue-400">Healthcare & EdTech Solutions</a></li>
+            <li><a href="#" class="hover:text-orange-500">Artificial Intelligence & Automation</a></li>
+            <li><a href="#" class="hover:text-orange-500">Web & Mobile App Development</a></li>
+            <li><a href="#" class="hover:text-orange-500">Cybersecurity & Data Privacy</a></li>
+            <li><a href="#" class="hover:text-orange-500">Blockchain & FinTech Solutions</a></li>
+            <li><a href="#" class="hover:text-orange-500">Data Analytics & Business Intelligence</a></li>
+            <li><a href="#" class="hover:text-orange-500">E-commerce & Digital Transformation</a></li>
+            <li><a href="#" class="hover:text-orange-500">Cloud & DevOps Services</a></li>
+            <li><a href="#" class="hover:text-orange-500">Healthcare & EdTech Solutions</a></li>
           </ul>
         </div>
         <!-- Quick Links -->
         <div>
           <h2 class="text-lg font-semibold text-black mb-4">QUICK LINKS</h2>
           <ul class="space-y-2">
-            <li><a href="/services" class="hover:text-blue-400">Services</a></li>
-            <li><a href="/industries" class="hover:text-blue-400">Industries</a></li>
-            <li><a href="/insights" class="hover:text-blue-400">Insights</a></li>
-            <li><a href="/about" class="hover:text-blue-400">About</a></li>
-            <li><a href="/contact" class="hover:text-blue-400">Contact Us</a></li>
-            <li><a href="/careers" class="hover:text-blue-400">Careers</a></li>
+            <li><a href="/services" class="hover:text-orange-500">Services</a></li>
+            <li><a href="/industries" class="hover:text-orange-500">Industries</a></li>
+            <li><a href="/insights" class="hover:text-orange-500">Insights</a></li>
+            <li><a href="/about" class="hover:text-orange-500">About</a></li>
+            <li><a href="/contact" class="hover:text-orange-500">Contact Us</a></li>
+            <li><a href="/careers" class="hover:text-orange-500">Careers</a></li>
           </ul>
         </div>
         <!-- Social Links -->
         <div>
           <h2 class="text-lg font-semibold text-black mb-4">SOCIAL LINKS</h2>
           <ul class="space-y-2">
-            <li><a href="#" class="flex items-center hover:text-blue-400">
+            <li><a href="#" class="flex items-center hover:text-orange-500">
                 <img src="{% static 'images/facebook.png' %}" alt="Facebook Logo" class="w-6 h-6 mr-2"> Facebook
               </a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400">
+            <li><a href="#" class="flex items-center hover:text-orange-500">
                 <img src="{% static 'images/instagram.png' %}" alt="Instagram Logo" class="w-6 h-6 mr-2"> Instagram
               </a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400">
+            <li><a href="#" class="flex items-center hover:text-orange-500">
                 <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn Logo" class="w-6 h-6 mr-2"> LinkedIn
               </a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400">
+            <li><a href="#" class="flex items-center hover:text-orange-500">
                 <img src="{% static 'images/twitter.png' %}" alt="X (Twitter) Logo" class="w-6 h-6 mr-2"> X (Twitter)
               </a></li>
-            <li><a href="#" class="flex items-center hover:text-blue-400">
+            <li><a href="#" class="flex items-center hover:text-orange-500">
                 <img src="{% static 'images/youtube.png' %}" alt="YouTube Logo" class="w-6 h-6 mr-2"> YouTube
               </a></li>
           </ul>
