@@ -214,50 +214,49 @@
   </section>
 
   <!-- Banner Section with 3 Columns and Full-Screen Image -->
-  <section class="relative min-h-[12rem] sm:min-h-[16rem] md:min-h-[20rem] lg:min-h-[24rem] w-screen -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-40">
-    <img src="{% static 'images/call_now.png' %}" alt="Banner" class="w-full h-full object-cover absolute inset-0">
+<section class="relative min-h-[50vh] sm:min-h-[40vh] md:min-h-[30vh] lg:min-h-[20vh] w-screen -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-40 overflow-hidden">
+  <img src="{% static 'images/quote.png' %}" alt="Banner" class="w-full h-full object-cover absolute inset-0 object-center sm:object-center md:object-center lg:object-center [object-position:center_30%] max-sm:[object-position:center_20%] max-sm:scale-125">
 
-    <!-- Overlay for content -->
-    <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col sm:flex-row space-y-4 sm:space-y-0">
-      <!-- Column 1 -->
-      <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
-        <div class="text-center text-white">
-          <p class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">We’re Here Whenever You Need</p>
-          <p class="text-base sm:text-lg md:text-xl lg:text-2xl">Contact Our Team</p>
-        </div>
+  <!-- Overlay for content -->
+  <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col sm:flex-row space-y-4 sm:space-y-0 items-center justify-center">
+    <!-- Column 1 -->
+    <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
+      <div class="text-center text-white">
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold">We’re Here Whenever You Need</p>
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">Contact Our Team</p>
       </div>
+    </div>
 
-      <!-- Column 2 -->
-      <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
-        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4">
-          <!-- Item 1 -->
-          <div class="flex flex-col items-center">
-            <img src="{% static 'images/email.svg' %}" alt="Email Icon" class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-1 sm:mb-2">
-            <span class="text-xs sm:text-sm md:text-base lg:text-lg text-center text-white">Mail Now</span>
-            <span class="text-xs sm:text-xs md:text-sm text-center text-white">primelinetech@gmail.com</span>
-          </div>
-          <!-- Divider -->
-          <div class="w-px h-10 sm:h-12 md:h-16 lg:h-20 bg-gray-300 mx-0 sm:mx-2 md:mx-3"></div>
-          <!-- Item 2 -->
-          <div class="flex flex-col items-center">
-            <img src="{% static 'images/call.svg' %}" alt="Call Icon" class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-1 sm:mb-2">
-            <span class="text-xs sm:text-sm md:text-base lg:text-lg text-center text-white">Call Now</span>
-            <span class="text-xs sm:text-xs md:text-sm text-center text-white">+92 335 3948753</span>
-          </div>
+    <!-- Column 2 -->
+    <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4">
+        <!-- Item 1 -->
+        <div class="flex flex-col items-center">
+          <img src="{% static 'images/email.svg' %}" alt="Email Icon" class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 mb-1 sm:mb-2">
+          <span class="text-xs sm:text-sm md:text-base lg:text-lg text-center text-white">Mail Now</span>
+          <span class="text-[0.625rem] sm:text-xs md:text-sm lg:text-base text-center text-white">primelinetech@gmail.com</span>
         </div>
-      </div>
 
-      <!-- Column 3 -->
-      <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
-        <div class="text-center text-white">
-          <p class="mt-1 sm:mt-2 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base lg:text-lg font-semibold">Fill form to get quote.</p>
-          <a href="http://127.0.0.1:8000/contact" class="px-3 sm:px-4 md:px-5 py-1 sm:py-2 md:py-2 bg-white text-black text-xs sm:text-sm md:text-base font-semibold rounded-lg shadow-md transform transition duration-300 hover:scale-102 hover:shadow-lg">
-            Get a Quote
-          </a>
+        <!-- Item 2 -->
+        <div class="flex flex-col items-center">
+          <img src="{% static 'images/call.svg' %}" alt="Call Icon" class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 mb-1 sm:mb-2">
+          <span class="text-xs sm:text-sm md:text-base lg:text-lg text-center text-white">Call Now</span>
+          <span class="text-[0.625rem] sm:text-xs md:text-sm lg:text-base text-center text-white">+92 335 3948753</span>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Column 3 -->
+    <div class="flex-1 flex items-center justify-center p-2 sm:p-3 md:p-4">
+      <div class="text-center text-white">
+        <p class="mt-1 sm:mt-2 mb-2 sm:mb-3 text-[0.625rem] sm:text-sm md:text-base lg:text-lg font-semibold">Fill form to get quote.</p>
+        <a href="http://127.0.0.1:8000/contact" class="px-2 sm:px-4 md:px-5 py-1 sm:py-2 md:py-2 bg-white text-black text-[0.625rem] sm:text-sm md:text-base font-semibold rounded-lg shadow-md transform transition duration-300 hover:scale-102 hover:shadow-lg">
+          Get a Quote
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Testimonial Section -->
   <section class="py-6 sm:py-8 md:py-10">
