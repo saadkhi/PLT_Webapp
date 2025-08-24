@@ -13,61 +13,49 @@
   }
 </style>
 
-<!-- Main Content Container with Reduced Padding and Wider Container -->
+<!-- Main Content Container -->
 <div class="px-2 sm:px-4 md:px-8 lg:px-8">
   <section class="py-6 sm:py-8 md:py-10">
     <div class="max-w-screen-xl mx-auto space-y-6 sm:space-y-8 md:space-y-10">
+
       <!-- Section 1: Job Listings -->
       <div class="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg min-h-[300px]">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6">Current Job Openings</h2>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6">
+          Current Job Openings
+        </h2>
+
+        {% if jobs %}
         <ul class="space-y-3 sm:space-y-4">
+          {% for job in jobs %}
           <li class="p-3 sm:p-4 border rounded-xl hover:shadow-md transition">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold">Frontend Developer</h3>
-            <p class="text-sm sm:text-base md:text-lg text-black">Experience: 1-2 years | Location: Remote</p>
+            <a href="{% url 'job_detail' job.id %}" class="block">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-blue-700 hover:underline">
+                {{ job.title }}
+              </h3>
+              <p class="text-sm sm:text-base md:text-lg text-black">
+                Location: {{ job.location }} | Mode: {{ job.get_job_mode_display }}
+              </p>
+            </a>
           </li>
-          <li class="p-3 sm:p-4 border rounded-xl hover:shadow-md transition">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold">Backend Engineer</h3>
-            <p class="text-sm sm:text-base md:text-lg text-black">Experience: 2+ years | Location: On-site</p>
-          </li>
-          <li class="p-3 sm:p-4 border rounded-xl hover:shadow-md transition">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold">UI/UX Designer</h3>
-            <p class="text-sm sm:text-base md:text-lg text-black">Experience: 1+ years | Location: Hybrid</p>
-          </li>
+          {% endfor %}
         </ul>
+        {% else %}
+          <p class="text-gray-600">No open positions available right now.</p>
+        {% endif %}
       </div>
 
-      <!-- Section 2: Resume Upload Form -->
-      <div class="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg min-h-[300px]">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6">Submit Your Resume</h2>
-        <form class="space-y-4 sm:space-y-6">
-          <div>
-            <label class="block text-sm sm:text-base md:text-lg text-black mb-1 sm:mb-2">Full Name</label>
-            <input type="text" placeholder="Enter your name"
-              class="w-full border p-2 sm:p-3 md:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-            <label class="block text-sm sm:text-base md:text-lg text-black mb-1 sm:mb-2">Email Address</label>
-            <input type="email" placeholder="Enter your email"
-              class="w-full border p-2 sm:p-3 md:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-            <label class="block text-sm sm:text-base md:text-lg text-black mb-1 sm:mb-2">Upload Resume</label>
-            <input type="file" class="w-full border p-2 sm:p-3 md:p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <button
-            class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-md hover:bg-blue-700 transition transform hover:scale-102">
-            Submit Application
-          </button>
-        </form>
-      </div>
-
-      <!-- Section 3: HR Contact Details -->
+      <!-- Section 2: HR Contact Details -->
       <div class="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg min-h-[300px]">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 sm:mb-6">HR Contact Information</h2>
-        <p class="text-sm sm:text-base md:text-lg text-black mb-3 sm:mb-4">📧 Email: <a href="mailto:hr@primeline.com"
-            class="text-blue-600 hover:underline">hr@primeline.com</a></p>
-        <p class="text-sm sm:text-base md:text-lg text-black mb-3 sm:mb-4">📞 Contact: +1 (555) 123-4567</p>
-        <p class="text-sm sm:text-base md:text-lg text-black">🏢 Walk-in Interviews: Mon - Fri | 10:00 AM - 4:00 PM</p>
+        <p class="text-sm sm:text-base md:text-lg text-black mb-3 sm:mb-4">
+          📧 Email: <a href="mailto:hr@primeline.com" class="text-blue-600 hover:underline">hr@primeline.com</a>
+        </p>
+        <p class="text-sm sm:text-base md:text-lg text-black mb-3 sm:mb-4">
+          📞 Contact: +1 (555) 123-4567
+        </p>
+        <p class="text-sm sm:text-base md:text-lg text-black">
+          🏢 Walk-in Interviews: Mon - Fri | 10:00 AM - 4:00 PM
+        </p>
       </div>
     </div>
   </section>

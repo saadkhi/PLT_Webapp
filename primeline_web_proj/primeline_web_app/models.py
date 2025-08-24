@@ -1,3 +1,40 @@
 from django.db import models
 
-# Create your models here.
+# Job model
+class Job(models.Model):
+    JOB_MODE_CHOICES = [
+        ('remote', 'Remote'),
+        ('hybrid', 'Hybrid'),
+        ('onsite', 'Onsite'),
+    ]
+
+    title = models.CharField(max_length=200)
+    location = models.CharField(max_length=100)
+    job_mode = models.CharField(max_length=10, choices=JOB_MODE_CHOICES)
+    about_role = models.TextField()
+    responsibilities = models.TextField()  # "What you will do"
+    requirements = models.TextField()      # "What we are looking for"
+    nice_to_have = models.TextField(blank=True, null=True)
+    posted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+# Candidate application model
+class Application(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name="applications")
+    name = models.CharField(max_length=100)
+    age = models.PositiveIntegerField()
+    email = models.EmailField()
+    education_level = models.CharField(max_length=200)
+    last_institute = models.CharField(max_length=200)
+    github_link = models.URLField(blank=True, null=True)
+    linkedin_link = models.URLField(blank=True, null=True)
+    resume = models.FileField(upload_to="resumes/")
+    referral_source = models.CharField(max_length=200)  # "Where did you hear about us?"
+
+    applied_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.job.title}"
