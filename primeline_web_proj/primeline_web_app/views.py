@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.core.mail import send_mail
+from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, render
 
 from . import forms
@@ -10,7 +13,32 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            contact_message = form.save()
+
+            # Send email to sales department
+            subject = f"New Contact Form Submission: {contact_message.subject or 'No Subject'}"
+            message = f"""
+            Name: {contact_message.name}
+            Email: {contact_message.email}
+            Message:
+            {contact_message.message}
+            """
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                ["saadali598@yahoo.com"],  # ✅ change to your sales email
+                fail_silently=False,
+            )
+
+            return redirect("contact")  # redirect back to contact page
+    else:
+        form = forms.ContactForm()
+
+    return render(request, "contact.html", {"form": form})
 
 def careers(request):
     jobs = models.Job.objects.all().order_by('-posted_at')

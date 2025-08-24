@@ -29,7 +29,7 @@
           {% for job in jobs %}
           <li class="p-3 sm:p-4 border rounded-xl hover:shadow-md transition">
             <a href="{% url 'job_detail' job.id %}" class="block">
-              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-blue-700 hover:underline">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-black hover:underline">
                 {{ job.title }}
               </h3>
               <p class="text-sm sm:text-base md:text-lg text-black">
@@ -40,7 +40,7 @@
           {% endfor %}
         </ul>
         {% else %}
-          <p class="text-gray-600">No open positions available right now.</p>
+          <p class="text-black">No open positions available right now.</p>
         {% endif %}
       </div>
 

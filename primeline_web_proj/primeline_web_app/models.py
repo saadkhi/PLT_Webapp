@@ -38,3 +38,14 @@ class Application(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.job.title}"
+
+# Contact message model
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    subject = models.CharField(max_length=250, blank=True, null=True)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"

@@ -2,41 +2,39 @@
 {% load static %}
 
 {% block title %}Contact{% endblock %}
-{% block content %}
 
+{% block content %}
 <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    overflow-x: hidden;
-  }
+  * { box-sizing: border-box; }
+  body { overflow-x: hidden; }
 </style>
 
-<!-- Main Content Container with Reduced Padding and Wider Container -->
 <div class="px-2 sm:px-4 md:px-8 lg:px-8">
   <section class="py-6 sm:py-8 md:py-10 bg-gray-100">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black text-center mb-6 sm:mb-8 md:mb-10">Contact Us</h2>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black text-center mb-6 sm:mb-8 md:mb-10">
+      Contact Us
+    </h2>
 
     <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+      
       <!-- Contact Form -->
       <div class="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-md min-h-[300px]">
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-black mb-4 sm:mb-6">Send Us a Message</h3>
-        <form action="#" method="POST" class="space-y-4 sm:space-y-6">
-          <div>
-            <input type="text" placeholder="Full Name"
-              class="w-full p-2 sm:p-3 md:p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-            <input type="email" placeholder="Email Address"
-              class="w-full p-2 sm:p-3 md:p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div>
-            <textarea placeholder="Your Message" rows="4 sm:rows-5"
-              class="w-full p-2 sm:p-3 md:p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-black mb-4 sm:mb-6">
+          Send Us a Message
+        </h3>
+
+        <form method="POST" class="space-y-4 sm:space-y-6">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          
+          <div>{{ form.name }}</div>
+          <div>{{ form.email }}</div>
+          <div>{{ form.subject }}</div>
+          <div>{{ form.message }}</div>
+
           <button
-            class="w-full bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold hover:bg-blue-700 transition transform hover:scale-102">
+            type="submit"
+            class="w-full bg-black text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold hover:bg-orange-500 transition transform hover:scale-102">
             Send Message
           </button>
         </form>
@@ -51,11 +49,13 @@
         <div class="space-y-3 sm:space-y-4">
           <p class="text-sm sm:text-base md:text-lg"><span class="font-semibold text-black">📍 Address:</span> 123 Business Street, New York, USA</p>
           <p class="text-sm sm:text-base md:text-lg"><span class="font-semibold text-black">📞 Phone:</span> +1 555 123 4567</p>
-          <p class="text-sm sm:text-base md:text-lg"><span class="font-semibold text-black">📧 Email:</span> <a href="mailto:hr@primeline.com"
-              class="text-blue-600 hover:underline">hr@primeline.com</a></p>
+          <p class="text-sm sm:text-base md:text-lg"><span class="font-semibold text-black">📧 Email:</span> 
+            <a href="mailto:hr@primeline.com" class="text-blue-600 hover:underline">hr@primeline.com</a>
+          </p>
           <p class="text-sm sm:text-base md:text-lg"><span class="font-semibold text-black">⏰ Office Hours:</span> Mon - Fri (9:00 AM - 6:00 PM)</p>
         </div>
       </div>
+
     </div>
   </section>
 </div>
