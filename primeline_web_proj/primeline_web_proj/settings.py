@@ -129,13 +129,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
-# Contact Email Configuration
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "saadalioffic@gmail.com"  # replace with your email
-EMAIL_HOST_PASSWORD = "zulk pnnd nfby ufjz"      # use App Password, not your normal password
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Import email configuration
+try:
+    from .email_config import (
+        EMAIL_BACKEND,
+        EMAIL_HOST,
+        EMAIL_PORT,
+        EMAIL_USE_TLS,
+        EMAIL_HOST_USER,
+        EMAIL_HOST_PASSWORD,
+        DEFAULT_FROM_EMAIL,
+    )
+except ImportError:
+    pass
