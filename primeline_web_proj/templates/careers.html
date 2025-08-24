@@ -8,6 +8,7 @@
   * {
     box-sizing: border-box;
   }
+
   body {
     overflow-x: hidden;
   }
@@ -15,6 +16,7 @@
 
 <!-- Main Content Container -->
 <div class="px-2 sm:px-4 md:px-8 lg:px-8">
+  <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-4 sm:mt-6 md:mt-8 text-center font-bold">Careers</h1>
   <section class="py-6 sm:py-8 md:py-10">
     <div class="max-w-screen-xl mx-auto space-y-6 sm:space-y-8 md:space-y-10">
 
@@ -40,7 +42,7 @@
           {% endfor %}
         </ul>
         {% else %}
-          <p class="text-black">No open positions available right now.</p>
+        <p class="text-black">No open positions available right now.</p>
         {% endif %}
       </div>
 
