@@ -48,10 +48,12 @@ def services(request):
     return render(request, 'services.html')
 
 def industries(request):
-    return render(request, 'industries.html')
+    industries_list = models.Industry.objects.all().order_by('name')
+    return render(request, 'industries.html', {'industries': industries_list})
 
 def insights(request):
-    return render(request, 'insights.html')
+    insights_list = models.Insight.objects.all().order_by('-created_at')
+    return render(request, 'insights.html', {'insights': insights_list})
 
 # Job Detail + Application Form
 def job_detail(request, job_id):

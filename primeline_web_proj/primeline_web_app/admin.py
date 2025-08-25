@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Job, Application
+from .models import Insight, Job, Application, Industry
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
@@ -8,3 +8,13 @@ class JobAdmin(admin.ModelAdmin):
 @admin.register(Application)
 class ApplicationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'job', 'applied_at')
+
+@admin.register(Insight)
+class InsightAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ('title', 'description')
+
+@admin.register(Industry)
+class IndustryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_at')
+    search_fields = ('name', 'description')

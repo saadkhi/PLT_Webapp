@@ -4,65 +4,31 @@
 {% block title %}Insights{% endblock %}
 {% block content %}
 
-<style>
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-</style>
-
-<!-- Main Content Container with Reduced Padding and Wider Container -->
 <div class="px-2 sm:px-4 md:px-8 lg:px-8">
   <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-4 sm:mt-6 md:mt-8 text-center font-bold">Insights</h1>
 
   <section class="py-6 sm:py-8 md:py-10 bg-gray-100 font-sans">
     <div class="max-w-screen-xl mx-auto">
-      <!-- Section Heading -->
-      <p class="text-sm sm:text-base md:text-lg text-black mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto">
+      <p class="text-sm sm:text-base md:text-lg text-black mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto text-center">
         Stay ahead with our expert insights on technology, business growth, and industry innovations.
-        Explore how we are shaping the future with impactful solutions.
       </p>
 
-      <!-- Insights Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-        <!-- Insight 1 -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden min-h-[200px] transform transition duration-300 hover:scale-102">
-          <!-- <img src="https://via.placeholder.com/400x200" alt="Insight 1" class="w-full h-32 sm:h-40 md:h-48 object-cover"> -->
+        {% for insight in insights %}
+        <div class="bg-white rounded-xl shadow-md overflow-hidden min-h-[200px] transform transition duration-300 hover:scale-102">
+          {% if insight.image %}
+          <img src="{{ insight.image.url }}" alt="{{ insight.title }}" class="w-full h-32 sm:h-40 md:h-48 object-cover">
+          {% endif %}
           <div class="p-4 sm:p-6">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">Digital Transformation</h3>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">{{ insight.title }}</h3>
             <p class="text-sm sm:text-base md:text-lg text-black max-w-3xl">
-              Learn how businesses are accelerating digital adoption to remain competitive in 2025.
+              {{ insight.description|truncatewords:25 }}
             </p>
           </div>
         </div>
-
-        <!-- Insight 2 -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden min-h-[200px] transform transition duration-300 hover:scale-102">
-          <!-- <img src="https://via.placeholder.com/400x200" alt="Insight 2" class="w-full h-32 sm:h-40 md:h-48 object-cover"> -->
-          <div class="p-4 sm:p-6">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">AI & Automation</h3>
-            <p class="text-sm sm:text-base md:text-lg text-black max-w-3xl">
-              Explore how AI is reshaping industries, reducing costs, and increasing efficiency.
-            </p>
-          </div>
-        </div>
-
-        <!-- Insight 3 -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden min-h-[200px] transform transition duration-300 hover:scale-102">
-          <!-- <img src="https://via.placeholder.com/400x200" alt="Insight 3" class="w-full h-32 sm:h-40 md:h-48 object-cover"> -->
-          <div class="p-4 sm:p-6">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">Future of Work</h3>
-            <p class="text-sm sm:text-base md:text-lg text-black max-w-3xl">
-              Discover the future workplace trends, from remote collaboration to smart offices.
-            </p>
-          </div>
-        </div>
+        {% empty %}
+        <p class="text-center text-gray-600 col-span-3">No insights available yet.</p>
+        {% endfor %}
       </div>
     </div>
   </section>
