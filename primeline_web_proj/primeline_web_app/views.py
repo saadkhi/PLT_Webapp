@@ -55,6 +55,10 @@ def insights(request):
     insights_list = models.Insight.objects.all().order_by('-created_at')
     return render(request, 'insights.html', {'insights': insights_list})
 
+def insight_detail(request, insight_id):
+    insight = get_object_or_404(models.Insight, pk=insight_id)
+    return render(request, 'insight_detail.html', {'insight': insight})
+
 # Job Detail + Application Form
 def job_detail(request, job_id):
     job = get_object_or_404(models.Job, id=job_id)
