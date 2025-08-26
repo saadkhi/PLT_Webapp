@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib import messages
 
 from . import forms
 from . import models
@@ -33,8 +34,8 @@ def contact(request):
                 ["saadali598@yahoo.com"],  # ✅ change to your sales email
                 fail_silently=False,
             )
-
-            return redirect("contact")  # redirect back to contact page
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect(request.META.get("HTTP_REFERER", "contact"))
     else:
         form = forms.ContactForm()
 

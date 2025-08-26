@@ -178,6 +178,40 @@
     </div>
   </footer>
 
+  <!-- Floating "Get a Quote" Button -->
+<button id="quote-btn"
+  class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-3 rounded-full shadow-lg font-semibold hover:bg-black transition z-50">
+  Get a Quote
+</button>
+
+<!-- Drawer Form -->
+<div id="quote-drawer"
+  class="fixed top-0 right-0 h-full w-96 max-w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+  <div class="p-6 h-full flex flex-col">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-black">Get a Quote</h2>
+      <button id="close-drawer" class="text-gray-500 hover:text-black text-2xl">&times;</button>
+    </div>
+
+    <form method="POST" action="{% url 'contact' %}" class="flex-1 flex flex-col space-y-4">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Full Name"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+      <input type="email" name="email" placeholder="Email Address"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+      <input type="text" name="subject" placeholder="Subject"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
+      <textarea name="message" rows="4" placeholder="Message"
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required></textarea>
+
+      <button type="submit"
+        class="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black transition">
+        Send Message
+      </button>
+    </form>
+  </div>
+</div>
+
   <!-- Scripts -->
   <script>
     // Navbar Hide on Scroll
@@ -201,6 +235,18 @@
     hamburgerBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("active");
     });
+
+    const quoteBtn = document.getElementById("quote-btn");
+  const drawer = document.getElementById("quote-drawer");
+  const closeDrawer = document.getElementById("close-drawer");
+
+  quoteBtn.addEventListener("click", () => {
+    drawer.classList.remove("translate-x-full");
+  });
+
+  closeDrawer.addEventListener("click", () => {
+    drawer.classList.add("translate-x-full");
+  });
   </script>
 </body>
 
