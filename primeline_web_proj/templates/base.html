@@ -64,10 +64,14 @@
       <div class="hidden lg:flex items-center space-x-4">
         <ul class="flex space-x-4 font-thin">
           <li><a href="/" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Home</a></li>
-          <li><a href="/services" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Services</a></li>
-          <li><a href="/industries" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Industries</a></li>
-          <li><a href="/insights" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Insights</a></li>
-          <li><a href="/about" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">About</a></li>
+          <li><a href="/services"
+              class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Services</a></li>
+          <li><a href="/industries"
+              class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Industries</a></li>
+          <li><a href="/insights"
+              class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Insights</a></li>
+          <li><a href="/about" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">About</a>
+          </li>
         </ul>
         <div class="flex items-center space-x-4 font-thin">
           <a href="/careers" class="px-3 py-2 rounded-md hover:text-orange-500 transition font-semibold">Careers</a>
@@ -179,38 +183,39 @@
   </footer>
 
   <!-- Floating "Get a Quote" Button -->
-<button id="quote-btn"
-  class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-3 rounded-lg shadow-lg font-semibold hover:bg-orange-600 transition z-50">
-  Get a Quote
-</button>
+  <button id="quote-btn"
+    class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-3 rounded-lg shadow-lg font-semibold hover:bg-orange-600 transition z-50">
+    Get a Quote
+  </button>
 
-<!-- Drawer Form -->
-<div id="quote-drawer"
-  class="fixed top-0 right-0 h-full w-96 max-w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
-  <div class="p-6 h-full flex flex-col">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold text-black">Get a Quote</h2>
-      <button id="close-drawer" class="text-gray-500 hover:text-black text-2xl">&times;</button>
+  <!-- Drawer Form -->
+  <div id="quote-drawer"
+    class="fixed top-0 right-0 h-full w-96 max-w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+    <div class="p-6 h-full flex flex-col">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-black">Get a Quote</h2>
+        <button id="close-drawer" class="text-gray-500 hover:text-black text-2xl">&times;</button>
+      </div>
+
+      <form method="POST" action="{% url 'contact' %}" class="flex-1 flex flex-col space-y-4">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Full Name"
+          class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+        <input type="email" name="email" placeholder="Email Address"
+          class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+        <input type="text" name="subject" placeholder="Subject"
+          class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <textarea name="message" rows="4" placeholder="Message"
+          class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          required></textarea>
+
+        <button type="submit"
+          class="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+          Send Message
+        </button>
+      </form>
     </div>
-
-    <form method="POST" action="{% url 'contact' %}" class="flex-1 flex flex-col space-y-4">
-      {% csrf_token %}
-      <input type="text" name="name" placeholder="Full Name"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-      <input type="email" name="email" placeholder="Email Address"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
-      <input type="text" name="subject" placeholder="Subject"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
-      <textarea name="message" rows="4" placeholder="Message"
-        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" required></textarea>
-
-      <button type="submit"
-        class="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
-        Send Message
-      </button>
-    </form>
   </div>
-</div>
 
   <!-- Scripts -->
   <script>
@@ -237,80 +242,80 @@
     });
 
     const quoteBtn = document.getElementById("quote-btn");
-  const drawer = document.getElementById("quote-drawer");
-  const closeDrawer = document.getElementById("close-drawer");
+    const drawer = document.getElementById("quote-drawer");
+    const closeDrawer = document.getElementById("close-drawer");
 
-  quoteBtn.addEventListener("click", () => {
-    drawer.classList.remove("translate-x-full");
-  });
-
-  closeDrawer.addEventListener("click", () => {
-    drawer.classList.add("translate-x-full");
-  });
-
-  // Carousel functionality
-  function initCarousels() {
-    const carousels = document.querySelectorAll('.carousel');
-
-    carousels.forEach(carousel => {
-      const container = carousel.querySelector('.carousel-container');
-      const prevBtn = carousel.querySelector('.carousel-prev');
-      const nextBtn = carousel.querySelector('.carousel-next');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      const carouselId = carousel.id;
-
-      if (!container || !prevBtn || !nextBtn) return;
-
-      const images = container.children;
-      const totalImages = images.length;
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        const translateX = -currentIndex * 100;
-        container.style.transform = `translateX(${translateX}%)`;
-
-        // Update dots
-        dots.forEach((dot, index) => {
-          if (index === currentIndex) {
-            dot.classList.add('bg-opacity-75');
-            dot.classList.remove('bg-opacity-50');
-          } else {
-            dot.classList.add('bg-opacity-50');
-            dot.classList.remove('bg-opacity-75');
-          }
-        });
-      }
-
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalImages;
-        updateCarousel();
-      }
-
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-        updateCarousel();
-      }
-
-      function goToSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-      }
-
-      // Event listeners
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-      });
-
-      // Auto-play (optional)
-      setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    quoteBtn.addEventListener("click", () => {
+      drawer.classList.remove("translate-x-full");
     });
-  }
 
-  // Initialize carousels when DOM is loaded
-  document.addEventListener('DOMContentLoaded', initCarousels);
+    closeDrawer.addEventListener("click", () => {
+      drawer.classList.add("translate-x-full");
+    });
+
+    // Carousel functionality
+    function initCarousels() {
+      const carousels = document.querySelectorAll('.carousel');
+
+      carousels.forEach(carousel => {
+        const container = carousel.querySelector('.carousel-container');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+        const carouselId = carousel.id;
+
+        if (!container || !prevBtn || !nextBtn) return;
+
+        const images = container.children;
+        const totalImages = images.length;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+          const translateX = -currentIndex * 100;
+          container.style.transform = `translateX(${translateX}%)`;
+
+          // Update dots
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add('bg-opacity-75');
+              dot.classList.remove('bg-opacity-50');
+            } else {
+              dot.classList.add('bg-opacity-50');
+              dot.classList.remove('bg-opacity-75');
+            }
+          });
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalImages;
+          updateCarousel();
+        }
+
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+          updateCarousel();
+        }
+
+        function goToSlide(index) {
+          currentIndex = index;
+          updateCarousel();
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Auto-play (optional)
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+      });
+    }
+
+    // Initialize carousels when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initCarousels);
   </script>
 </body>
 
