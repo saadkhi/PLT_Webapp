@@ -75,3 +75,8 @@ def job_detail(request, job_id):
         form = forms.ApplicationForm()
 
     return render(request, 'job_detail.html', {'job': job, 'form': form})
+
+def project_category(request, category_id):
+    category = get_object_or_404(models.Category, id=category_id)
+    projects = category.projects.all()  # sirf us category ke projects
+    return render(request, "project_category.html", {"category": category, "projects": projects})

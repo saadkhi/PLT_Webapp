@@ -11,4 +11,5 @@ urlpatterns = [
     path('insights/', views.insights, name='insights'),
     path('careers/<int:job_id>/', views.job_detail, name='job_detail'),
     path('insights/<int:insight_id>/', views.insight_detail, name='insight_detail'),
+    path('projects/category/<int:category_id>/', views.project_category, name='project_category'),
 ]

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mx-auto px-6 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-center">{{ category.name }} Projects</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {% for project in projects %}
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-3">{{ project.title }}</h3>
+        <p class="text-gray-600 mb-4">{{ project.description }}</p>
+
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" class="rounded-lg mb-4">
+        {% endif %}
+
+        {% if project.link %}
+          <a href="{{ project.link }}" target="_blank"
+             class="text-blue-600 font-medium hover:underline">
+            View Project →
+          </a>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p class="text-gray-500 text-center col-span-2">No projects found in this category.</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
