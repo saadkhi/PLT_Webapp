@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Insight, Job, Application, Industry, Category, Project
+from .models import Insight, Job, Application, Industry, Category, Project, ProjectImage
+
+class ProjectImageInline(admin.TabularInline):
+    model = ProjectImage
+    extra = 1
+    fields = ('image', 'alt_text', 'order')
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
@@ -19,5 +24,10 @@ class IndustryAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at')
     search_fields = ('name', 'description')
 
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category')
+    search_fields = ('title', 'description')
+    inlines = [ProjectImageInline]
+
 admin.site.register(Category)
-admin.site.register(Project)

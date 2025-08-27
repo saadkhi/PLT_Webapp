@@ -78,5 +78,5 @@ def job_detail(request, job_id):
 
 def project_category(request, category_id):
     category = get_object_or_404(models.Category, id=category_id)
-    projects = category.projects.all()  # sirf us category ke projects
+    projects = category.projects.prefetch_related('images').all()  # prefetch images for better performance
     return render(request, "project_category.html", {"category": category, "projects": projects})

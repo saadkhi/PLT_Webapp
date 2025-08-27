@@ -83,8 +83,20 @@ class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="projects")
     title = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='projects/', blank=True, null=True)
     link = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to='projects/')
+    alt_text = models.CharField(max_length=200, blank=True, null=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"{self.project.title} - Image {self.order}"
