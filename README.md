@@ -1,1 +1,1 @@
-
+print("i love JavaScript")
